@@ -4,11 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Install nodejs version 14.17.0 (https://nodejs.org/en/download/)
-
-Install Angular 12 (npm install -g @angular/cli)
-
-Install Package (npm install)
+- Install nodejs version 14.17.0 (https://nodejs.org/en/download/)
+- Install Angular 12 (npm install -g @angular/cli)
+- Install Package (npm install)
 
 ## Development server
 
