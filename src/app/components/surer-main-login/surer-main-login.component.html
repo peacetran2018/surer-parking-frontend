@@ -1,0 +1,24 @@
+<div class="form animate__animated animate__fadeInDown">
+    <ul class="nav nav-pills nav-fill mb-2">
+        <li id="lisignup" class="nav-item"><a routerLink="/login" class="nav-link " [ngClass]="{
+            'active':!isLogin 
+        }" (click)="Toggle('signup')">Sign Up</a></li>
+        <li id="lilogin" class="nav-item"><a routerLink="/login" class="nav-link " [ngClass]="{
+            'active':isLogin  
+        }" (click)="Toggle('login')">Log In</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="signup" [ngClass]="{
+            'show':!isLogin,
+            'hidden':isLogin
+          }">
+            <app-surer-signup></app-surer-signup>
+        </div>
+        <div id="login" [ngClass]="{
+            'show':isLogin,
+            'hidden':!isLogin
+          }">
+            <app-surer-login></app-surer-login>
+        </div>
+    </div>
+</div>

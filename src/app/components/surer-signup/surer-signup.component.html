@@ -1,0 +1,62 @@
+<div class="animate__animated animate__fadeIn">
+    <h2 class="text-center">Sign Up</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>First Name</label>
+                <input type="text" formControlName="firstname" placeholder="First Name *" class="form-control" [ngClass]="{
+                        'border border-danger': (fSignUp.firstname.touched || submitted) && fSignUp.firstname.errors 
+                    }" />
+                <div *ngIf="(fSignUp.firstname.touched || submitted) && fSignUp.firstname.errors?.required">
+                    <div class="text-danger">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastname" placeholder="Last Name *" class="form-control" [ngClass]="{
+                        'border border-danger': (fSignUp.lastname.touched || submitted) && fSignUp.lastname.errors 
+                    }" />
+                <div *ngIf="(fSignUp.lastname.touched || submitted) && fSignUp.lastname.errors?.required">
+                    <div class="text-danger">Last Name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Email address</label>
+                <input type="email" formControlName="email" placeholder="Email *" class="form-control" [ngClass]="{
+                            'border border-danger': (fSignUp.email.touched || submitted) && fSignUp.email.errors 
+                        }" />
+                <div *ngIf="(fSignUp.email.touched || submitted) && fSignUp.email.errors?.required">
+                    <div class="text-danger">email is required</div>
+                </div>
+                <div *ngIf=" (fSignUp.email.touched || submitted) && fSignUp.email.errors?.email">
+                    <div class="text-danger">Email must be a valid email address (example@hostname.com)</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Phone number</label>
+                <input type="text" formControlName="phonenumber" placeholder="Phone Number" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" placeholder="Password *" class="form-control" [ngClass]="{
+                    'border border-danger': (fSignUp.password.touched || submitted) && fSignUp.password.errors 
+                }" />
+            <div *ngIf="(fSignUp.password.touched || submitted) && fSignUp.password.errors?.required">
+                <div class="text-danger">Password is required</div>
+            </div>
+            <div *ngIf="(fSignUp.password.touched || submitted) && fSignUp.password.errors?.pattern">
+                <div class="text-danger">Password should have minimum 6 characters, at least 1 uppercase letter, 1 lowercase letter, 1 non character and 1 number</div>
+            </div>
+        </div>
+
+        <button [disabled]="loading" type="submit" class="btn btn-primary btn-block">
+            <span *ngIf="!loading">Sign Up</span>
+            <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span *ngIf="loading" class="sr-only">Loading...</span>
+        </button>
+    </form>
+</div>
